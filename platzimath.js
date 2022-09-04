@@ -16,22 +16,20 @@ function esParImpar(list) {
 }
 
 function mediana(list) {
-    if (esParImpar(list)) {
-        const indexList = Math.floor(list.length / 2);
-        const medianaImpar = list[indexList];
-        console.log({
-            indexList,
-            medianaImpar
-        });
+    const listOrd = ordenarLista(list);
+    if (esParImpar(listOrd)) {
+        const indexList = Math.floor(listOrd.length / 2);
+        const medianaImpar = listOrd[indexList];
         return medianaImpar
     } else {
-        const indexListOne = Math.floor(list.length / 2);
+        const indexListOne = Math.floor(listOrd.length / 2);
         const indexListTwo = indexListOne - 1;
-        const medianaPar = calculoPromedio([list[indexListOne], list[indexListTwo]]);
-        console.log({
-            indexListOne,
-            indexListTwo
-        })
+        const medianaPar = calculoPromedio([listOrd[indexListOne], listOrd[indexListTwo]]);
         return medianaPar;
     }
 }
+
+function ordenarLista(list) {
+    const listOrdenada = list.sort((valAcumulado, valActual) => valAcumulado - valActual);
+    return listOrdenada;
+} 
