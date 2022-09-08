@@ -33,15 +33,15 @@ PlatziMath.calculoPromedio = function calculoPromedio(list) {
 }
 
 PlatziMath.mediana = function mediana(list) {
-    const listOrd = ordenarLista(list);
-    if (esParImpar(listOrd)) {
+    const listOrd = PlatziMath.ordenarLista(list);
+    if (PlatziMath.esParImpar(listOrd)) {
         const indexList = Math.floor(listOrd.length / 2);
         const medianaImpar = listOrd[indexList];
         return medianaImpar
     } else {
         const indexListOne = Math.floor(listOrd.length / 2);
         const indexListTwo = indexListOne - 1;
-        const medianaPar = calculoPromedio([listOrd[indexListOne], listOrd[indexListTwo]]);
+        const medianaPar = PlatziMath.calculoPromedio([listOrd[indexListOne], listOrd[indexListTwo]]);
         return medianaPar;
     }
 }
